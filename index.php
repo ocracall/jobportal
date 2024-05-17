@@ -64,9 +64,7 @@
 
       ?>
       <div class="card">
-      <div class="image">
-          <img src="<?php echo $row["product_image"]; ?>" alt="">
-      </div>
+
                <p class="product_name" ><?php echo $contact['jobName'];  ?></p>
                <p class="price" ><b> <?php echo $contact['company']; ?></b></p>
                <p class="discount"><b> <?php echo $contact['position']; ?></b></p>
