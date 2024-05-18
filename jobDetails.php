@@ -44,7 +44,7 @@
                 <a href="./jobDetails.php?source=<?php echo $jobDetails['id']; ?>">
                     <div class="<?php  if ($source==$jobDetails['id']) {echo "jobListCard Selected";} else {echo "jobListCard ";} ?>" >
                     <div class="flex-view">
-                        <div class="imageLogo">
+                        <div class="imageLogo" style="  background: #d7d7d7;">
                             <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
                             <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
                         </div>
@@ -54,32 +54,32 @@
                         </div>
                     </div>
                     <div class="flex-view tags">
-                        <div class="imageIcon"> 
+                        <div class="imageIcon color1"> 
                             <div class="Icon">
                                 <img src="image/map.png" alt="">
                             </div>
                             <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
                         </div>
                    
-                        <div class="imageIcon"> 
+                        <!-- <div class="imageIcon color2"> 
                             <div class="Icon">
                                 <img src="image/data-center.png" alt="">
                             </div>
                             <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
-                        </div>
+                        </div> -->
 
-                        <div class="imageIcon"> 
+                        <div class="imageIcon color2"> 
                             <div class="Icon">
                                 <img src="image/distributed.png" alt="">
                             </div>
                             <p class="tagName"> <?php echo $jobDetails['jobType']; ?></p>
                         </div>
 
-                        <div class="imageIcon"> 
+                        <div class="imageIcon color3"> 
                             <div class="Icon">
                                 <img src="image/money.png" alt="">
                             </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobSalary']; ?></p>
+                            <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
                         </div>
 
                     </div>
