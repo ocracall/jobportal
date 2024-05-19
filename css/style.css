@@ -387,9 +387,14 @@ main .card {
 }
 
 .jobListCardContainer {
-  width: 50vw;
-  height: 100%;
 
+  /* grid-column: center-start / -1; */
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+  overflow: auto;
+  width: 100vw;
+  height: 100%;
   /* flex: 1 1 310px; */
   text-align: left;
   font-family: "Mukta", sans-serif;
@@ -397,27 +402,46 @@ main .card {
   font-style: normal;
 
   border: 1px solid lightgray;
-  margin: 20px;
+  margin: 0 auto;
   background: #FFFFFF;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+
+  @media(min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 20px;
+  }
 }
 
+.card-wrapper {
+  display: grid;
+  place-content: center;
+  /* background-color: #d0f0ee;
+    color: #15928A; */
+
+  /* height: 20rem; */
+  width: 95vw;
+  padding: 2%;
+  margin: 0 1%;
+}
 
 .jobListCard {
-  max-width: 100%;
-  padding: 2%;
-  flex: 1 1 310px;
+
+  width: 90vw;
+  margin: 0 auto;
+  padding: 5%;
   text-align: left;
   font-family: "Mukta", sans-serif;
   font-weight: 800;
   font-style: normal;
   height: auto;
-  border: 1px solid lightgray;
-  margin: 20px 10px;
+  border: 2px solid rgb(244, 188, 2);
+
   background: #FFFFFF;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -425,6 +449,13 @@ main .card {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 
+  @media(min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    /* flex: 1 1 310px; */
+    /* margin: 20px 10px; */
+  }
 }
 
 .Selected {
@@ -439,6 +470,11 @@ main .card {
   margin: 0 1%;
   /* flex-wrap: wrap;*/
   justify-content: space-between;
+  flex-direction: column;
+
+  @media(min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .detailsCardContainer {
@@ -465,7 +501,7 @@ main .card {
 .detailsCardContent {
 
   margin: 1.5% auto;
-  /* height: 97vh; */
+  height: 98vh;
   background-color: #ffffff;
   padding: 2%;
   border: 1px solid #d3d3d3;
@@ -477,13 +513,14 @@ main .card {
 }
 
 .JobDescription-CardTop {
+  height: auto;
   padding: 2%;
   width: 100%;
   text-align: left;
   font-family: "Mukta", sans-serif;
   font-weight: 800;
   font-style: normal;
-  height: auto;
+
   border: 1px solid lightgray;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -494,9 +531,17 @@ main .card {
 
 }
 
+.flex-view-tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 20px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .flex-view {
   display: flex;
-  /* justify-content:space-evenly; */
+  /* justify-content: space-evenly; */
   align-items: center;
   gap: 20px;
   height: auto;
@@ -531,7 +576,7 @@ main .card {
 
 
   & .imageIcon {
-    width: 100%;
+    width: auto;
     padding: 0.3% 3%;
 
     & img {
@@ -547,6 +592,10 @@ main .card {
     border-radius: 20px;
 
 
+  }
+  
+  @media(max-width:970px) {
+    justify-content: start;
   }
 }
 
@@ -677,13 +726,14 @@ main .card {
 
 .JobDescription-CardMiddle {
   width: 100%;
+  height: 53vh;
   margin: 2% 0;
   padding: 2%;
   text-align: left;
   font-family: "Mukta", sans-serif;
   font-weight: 800;
   font-style: normal;
-  height: 56vh;
+
   border: 1px solid lightgray;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1711,32 +1761,49 @@ footer-container {
 .footer-logo {
   display: flex;
   align-items: center;
+  /* margin: 0 auto; */
+  justify-content: center;
 
   & .footerLogo {
-    width: 20%;
     margin-right: 6%;
+    width: 12%;
 
     /* margin-left: -2.5px; */
     & img {
       width: 100%;
     }
+    @media(min-width: 768px) {
+      width: 20%;
+    }
   }
-  & p{
+
+  & p {
     /* color: #ef9e9e; */
     color: #ef9e9e;
     font-size: 22px;
     font-weight: 700;
   }
+
+  @media(min-width: 576px) {
+    justify-content: flex-start;
+  }
+
 }
 
 .footer-card {
   max-width: 100%;
   flex: 1 1 210px;
-  text-align: left;
+  text-align: center;
   padding: 2%;
   height: auto;
   margin: 20px;
 
+  @media(min-width: 768px) {
+    text-align: center;
+  }
+  @media(min-width: 576px) {
+    text-align: left;
+  }
 
   & .header {
     display: block;
@@ -2468,18 +2535,21 @@ justify-content:space-around; */
 
 
 #sticky {
-  width: 58.5vw;
-  /*height:300px;
-    height: 80vh;
-    */
-  /*background-color: #333;
-    */
+  width: 100%;
+  /* height: auto; */
   color: #fff;
 
+  @media(min-width: 768px) {
+    width: 58.5vw;
+    /* height: 80vh; */
+  }
 }
 
 #sticky.stick {
-  position: fixed;
-  width: 58.5vw;
+  position: relative;
 
+  @media(min-width: 768px) {
+    position: fixed;
+    width: 58.5vw;
+  }
 }

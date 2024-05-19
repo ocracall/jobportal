@@ -1,55 +1,56 @@
   <footer id="footer">
 
-  <footer-container>
-  <div class="footer-card">
-<div class="footer-logo">
-<div class="footerLogo">
-          <img src="../image/sai_rojgar_logo.png" alt="" />
+    <footer-container>
+      <div class="footer-card">
+        <div class="footer-logo">
+          <div class="footerLogo">
+            <img src="../image/sai_rojgar_logo.png" alt="" />
+          </div>
+
+          <p>
+            Sai Rojgar
+          </p>
         </div>
 
-    <p>
-    Sai Rojgar
-    </p>
-</div>
-    
-    <i>
-    <div class="points">
-    "HELPING YOU TO- STEP INTO THE JOB"
-    </div></i>
+        <i>
+          <div class="points">
+            "HELPING YOU TO- STEP INTO THE JOB"
+          </div>
+        </i>
 
-  </div>
-  
-  <div class="footer-card">
+      </div>
 
-  <div class="header ">
-    Office
-    </div>
-    <div class="points">
-    Sai Rojgar, D.B Science College Road, Gondia- 441614, Maharashtra, India.
-    </div>
-  </div>
-  
-  <div class="footer-card">
-  <div class="header ">
-  Links
-    </div>
+      <div class="footer-card">
 
-    <div class="points">
-   Jobs
-    </div>
-    <div class="points">
-   Company
-    </div>
-    <div class="points">
-   Contact Us
-    </div>
-  </div>
+        <div class="header ">
+          Office
+        </div>
+        <div class="points">
+          Sai Rojgar, D.B Science College Road, Gondia- 441614, Maharashtra, India.
+        </div>
+      </div>
 
-    
-  <div class="footer-card">
-  <div class="header ">
-  Connect With Us
-    </div>
+      <div class="footer-card">
+        <div class="header ">
+          Links
+        </div>
+
+        <div class="points">
+          Jobs
+        </div>
+        <div class="points">
+          Company
+        </div>
+        <div class="points">
+          Contact Us
+        </div>
+      </div>
+
+
+      <div class="footer-card">
+        <div class="header ">
+          Connect With Us
+        </div>
         <div class="social-footer--icons">
           <a href="#" target="_blank" alt="">
             <i class="fa-brands fa-youtube"></i>
@@ -61,15 +62,15 @@
             <i class="fa-brands fa-x-twitter"></i>
           </a>
           <a href="#" target="_blank" alt="">
-          <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-facebook"></i>
           </a>
         </div>
 
 
-  </div>
+      </div>
 
-  </footer-container>
-  <div class="footer-separator"></div>
+    </footer-container>
+    <div class="footer-separator"></div>
     <div class="designercredit">
       <p>Designed by Shubhanshu with ❤️</p>
     </div>

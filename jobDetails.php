@@ -36,160 +36,158 @@
 
     <div class="wrapper">
         <div class="jobListCardContainer">
-                <?php
-                    $sql = "SELECT * FROM jobList ";
-                    $getJobList = $conn->query($sql);
-                    while ($jobDetails = $getJobList->fetch_assoc()) {
-                ?>
-                <a href="./jobDetails.php?source=<?php echo $jobDetails['id']; ?>">
-                    <div class="<?php  if ($source==$jobDetails['id']) {echo "jobListCard Selected";} else {echo "jobListCard ";} ?>" >
-                    <div class="flex-view">
-                        <div class="imageLogo" style="  background: #d7d7d7;">
-                            <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
-                            <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
+            <?php
+            $sql = "SELECT * FROM jobList ";
+            $getJobList = $conn->query($sql);
+            while ($jobDetails = $getJobList->fetch_assoc()) {
+            ?>
+                <a href="./jobDetails.php?source=<?php echo $jobDetails['id']; ?>" class="card-wrapper">
+                    <div class="<?php if ($source == $jobDetails['id']) {
+                                    echo "jobListCard Selected";
+                                } else {
+                                    echo "jobListCard ";
+                                } ?>">
+                        <div class="flex-view">
+                            <div class="imageLogo" style="  background: #d7d7d7;">
+                                <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
+                                <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
+                            </div>
+                            <div class="block-view">
+                                <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
+                                <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
+                            </div>
                         </div>
-                        <div class="block-view">
-                        <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
-                        <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
+                        <div class="flex-view" style="gap: 5px">
+                            <div class="imageIcon color1">
+                                <div class="Icon">
+                                    <img src="image/map.png" alt="">
+                                </div>
+                                <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
+                            </div>
+
+                            <div class="imageIcon color2">
+                                <div class="Icon">
+                                    <img src="image/distributed.png" alt="">
+                                </div>
+                                <p class="tagName "> <?php echo $jobDetails['jobType']; ?></p>
+                            </div>
+
+                            <div class="imageIcon color3">
+                                <div class="Icon">
+                                    <img src="image/money.png" alt="">
+                                </div>
+                                <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
+                            </div>
+
                         </div>
+
+
+
                     </div>
-                    <div class="flex-view tags">
-                        <div class="imageIcon color1"> 
-                            <div class="Icon">
-                                <img src="image/map.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
-                        </div>
-                   
-                        <!-- <div class="imageIcon color2"> 
-                            <div class="Icon">
-                                <img src="image/data-center.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
-                        </div> -->
-
-                        <div class="imageIcon color2"> 
-                            <div class="Icon">
-                                <img src="image/distributed.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobType']; ?></p>
-                        </div>
-
-                        <div class="imageIcon color3"> 
-                            <div class="Icon">
-                                <img src="image/money.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
-                        </div>
-
-                    </div>
-
- 
-                
-                    </div>
-            </a>
-                <?php
-                    }
-                ?>
+                </a>
+            <?php
+            }
+            ?>
+            <div style="margin-right:2vw;"></div>
         </div>
-          
-        <div class="detailsCardContainer" >
+
+        <div class="detailsCardContainer">
             <div id="sticky-anchor">
 
             </div>
             <div id="sticky">
 
-            <?php
-                    $sql = "SELECT * FROM jobList where id=$source";
-                    $getJobList = $conn->query($sql);
-                    while ($jobDetails = $getJobList->fetch_assoc()) {
+                <?php
+                $sql = "SELECT * FROM jobList where id=$source";
+                $getJobList = $conn->query($sql);
+                while ($jobDetails = $getJobList->fetch_assoc()) {
                 ?>
-                <div class="detailsCardContent" >
+                    <div class="detailsCardContent">
 
-                <div class="JobDescription-CardTop" >
-                    <div class="flex-view">
-                        <div class="imageLogo">
-                            <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
-                            <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
+                        <div class="JobDescription-CardTop">
+                            <div class="flex-view">
+                                <div class="imageLogo">
+                                    <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
+                                    <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
+                                </div>
+                                <div class="block-view">
+                                    <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
+                                    <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
+                                </div>
+                            </div>
+                            <div class="flex-view-tags">
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/map.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
+                                </div>
+
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/data-center.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
+                                </div>
+
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/distributed.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['jobType']; ?></p>
+                                </div>
+
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/money.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['jobSalary']; ?></p>
+                                </div>
+
+                            </div>
+
+                            <div class="flex-view tags">
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/economy.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['jobIndustry']; ?></p>
+                                </div>
+
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/experience.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
+                                </div>
+
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/clock.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php include 'timecalculate.php' ?></p>
+                                </div>
+
+                                <div class="imageIcon">
+                                    <div class="Icon">
+                                        <img src="image/id-card.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="block-view">
-                        <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
-                        <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
+
+                        <div class="JobDescription-CardMiddle">
+                            <div>
+                                <p class="JobDescription-CardMiddle-Title"> Job Description</p>
+                                <p class="JobDescription-CardMiddle-Description"> <?php echo $jobDetails['jobDescription']; ?></p>
+                            </div>
+
                         </div>
+
+
                     </div>
-                    <div class="flex-view tags">
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/map.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
-                        </div>
-                   
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/data-center.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
-                        </div>
-
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/distributed.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobType']; ?></p>
-                        </div>
-
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/money.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobSalary']; ?></p>
-                        </div>
-
-                    </div>
-
-                    <div class="flex-view tags">
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/economy.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['jobIndustry']; ?></p>
-                        </div>
-                   
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/experience.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
-                        </div>
-
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/clock.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php include 'timecalculate.php'?></p>
-                        </div>
-
-                        <div class="imageIcon"> 
-                            <div class="Icon">
-                                <img src="image/id-card.png" alt="">
-                            </div>
-                            <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="JobDescription-CardMiddle" >
-                    <div>        
-                        <p class="JobDescription-CardMiddle-Title"> Job Description</p>
-                        <p class="JobDescription-CardMiddle-Description"> <?php echo $jobDetails['jobDescription']; ?></p>        
-                    </div>
-
-                </div>
-
-                  
-                </div>
                 <?php } ?>
             </div>
         </div>
@@ -200,69 +198,69 @@
     include 'components/footer.php'
     ?>
 
-<script>
+    <script>
+        // Start of
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var scrollpos = sessionStorage.getItem('scrollpos');
+            if (scrollpos) {
+                window.scrollTo(0, scrollpos);
+                sessionStorage.removeItem('scrollpos');
+            }
+        });
+
+        window.addEventListener("beforeunload", function(e) {
+            sessionStorage.setItem('scrollpos', window.scrollY);
+        });
 
 
-// Start of
-    document.addEventListener("DOMContentLoaded", function (event) {
-        var scrollpos = sessionStorage.getItem('scrollpos');
-        if (scrollpos) {
-            window.scrollTo(0, scrollpos);
-            sessionStorage.removeItem('scrollpos');
+
+
+        // JobDetails Card Stick Start
+
+
+        function sticky_relocate() {
+            const sticky = document.querySelector('#sticky');
+            const window_top = window.scrollY;
+            const footer_top = document.querySelector('#footer').offsetTop - 80;
+            const div_top = document.querySelector('#sticky-anchor').offsetTop;
+            const div_height = document.querySelector('#sticky').offsetHeight;
+            var padding = 0; // tweak here or get from margins etc
+
+            if (window_top + div_height > footer_top - padding) {
+                let negTop = (window_top + div_height - footer_top + padding) * -1;
+                if (screen.width > 768) {
+                    sticky.style.top = negTop + 'px';
+                }
+            } else if (window_top > div_top) {
+                sticky.classList.add('stick');
+                sticky.style.top = 0;
+            } else {
+                sticky.classList.remove('stick');
+            }
         }
-    });
+        window.addEventListener('scroll', sticky_relocate);
 
-    window.addEventListener("beforeunload", function (e) {
-        sessionStorage.setItem('scrollpos', window.scrollY);
-    });
+        const staticSidebar = document.querySelector('.static-sidebar');
+        const anchorlinks = staticSidebar.querySelectorAll('a[href^="#"]')
 
+        for (const item of anchorlinks) {
+            item.addEventListener('click', (e) => {
+                const hashval = item.getAttribute('href')
+                const target = document.querySelector(hashval)
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })
+                history.pushState(null, null, hashval)
+                e.preventDefault()
+            })
+        };
+        // JobDetails Card Stick End
 
+        // Remember scroll location after reload start
 
-    
-// JobDetails Card Stick Start
-
-
-function sticky_relocate() {
-    const sticky = document.querySelector('#sticky');
-    const window_top = window.scrollY;
-    const footer_top = document.querySelector('#footer').offsetTop;
-    const div_top = document.querySelector('#sticky-anchor').offsetTop;  
-    const div_height = document.querySelector('#sticky').offsetHeight;
-    var padding = 0;  // tweak here or get from margins etc
-    
-    if (window_top + div_height > footer_top - padding){
-        let negTop = (window_top + div_height - footer_top + padding) * -1;
-        sticky.style.top = negTop + 'px';
-    }else if (window_top > div_top) {
-        sticky.classList.add('stick');
-        sticky.style.top = 0;
-    } else {
-        sticky.classList.remove('stick');  
-    }
-}
-window.addEventListener('scroll', sticky_relocate);
-
-const staticSidebar = document.querySelector('.static-sidebar');
-const anchorlinks = staticSidebar.querySelectorAll('a[href^="#"]')
-
-for (const item of anchorlinks) { 
-    item.addEventListener('click', (e)=> {
-        const hashval = item.getAttribute('href')
-        const target = document.querySelector(hashval)
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-        history.pushState(null, null, hashval)
-        e.preventDefault()
-    })
-};
-// JobDetails Card Stick End
-
-// Remember scroll location after reload start
-
-    // Remember scroll location after reload end
-</script>
+        // Remember scroll location after reload end
+    </script>
 </body>
 
 </html>
