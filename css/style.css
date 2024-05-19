@@ -161,7 +161,17 @@ li {
 }
 
 .full-width {
-  display: block;
+  position: absolute;
+  bottom: 20px;
+  /* border: 3px solid green; */
+  width: 90%;
+
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 90%; 
+
 }
 
 .grid {
@@ -368,13 +378,14 @@ main {
 
 main .card {
   width: 100%;
-  flex: 1 1 310px;
+  flex: 1 1 360px;
   text-align: left;
-
+  position: relative;
   font-family: "Mukta", sans-serif;
   font-weight: 800;
   font-style: normal;
   padding: 2%;
+  padding-bottom: 70px;
   height: auto;
   border: 1px solid #d3d3d3;
   margin: 20px;
@@ -413,8 +424,9 @@ main .card {
   @media(min-width: 768px) {
     display: flex;
     flex-direction: column;
-    width: 50vw;
-    margin: 20px;
+    width: 40vw;
+    /* padding-top: 1%; */
+    margin: 20px 0% 1% 1%;
   }
 }
 
@@ -430,7 +442,7 @@ main .card {
   margin: 0 1%;
 
   @media(min-width: 768px) {
-     width: 30vw;
+     width: 26vw;
      margin: 0 auto;
     }
 }
@@ -439,13 +451,13 @@ main .card {
 
   width: 90vw;
   margin: 0 auto;
-  padding: 5%;
+  padding: 10px;
   text-align: left;
   font-family: "Mukta", sans-serif;
   font-weight: 800;
   font-style: normal;
   height: auto;
-  border: 2px solid rgb(244, 188, 2);
+  border: 1px solid rgb(160, 160, 160);
 
   background: #FFFFFF;
   border-radius: 10px;
@@ -457,8 +469,8 @@ main .card {
   @media(min-width: 768px) {
     display: flex;
     flex-direction: column;
-    padding: 2%;
-    width: 30vw;
+    margin-top: 10px;
+    width: 26vw;
     /* flex: 1 1 310px; */
     /* margin: 20px 10px; */
   }
@@ -506,10 +518,10 @@ main .card {
 
 .detailsCardContent {
 
-  margin: 1.5% auto;
-  height: auto;
+  margin: 10px auto;
+  height: 98vh;
   background-color: #ffffff;
-  padding: 2%;
+  padding: 20px;
   border: 1px solid #d3d3d3;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -539,7 +551,7 @@ main .card {
 
 
 }
-
+/* 
 .flex-view-tags {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -547,21 +559,18 @@ main .card {
   height: auto;
   margin-bottom: 10px;
   align-items: flex-start;
-}
+} */
 
 .flex-view {
   display: flex;
-  /* justify-content: space-evenly; */
-  align-items: center;
+  /* justify-content:space-between; */
+  align-items:flex-start;
   flex-wrap: wrap;
   gap: 20px;
   height: auto;
   margin-bottom: 10px;
 
-  & .tags {
-    gap: 30px;
 
-  }
 
 
   & .imageLogo {
@@ -588,7 +597,7 @@ main .card {
 
   & .imageIcon {
     width: auto;
-    padding: 0.3% 3%;
+    /* padding: 0.3% 3%; */
 
     & img {
       width: 100%;
@@ -612,7 +621,7 @@ main .card {
 
 .color1 {
   background: #DDE8F8;
-  padding: 0.3% 3%;
+  padding:  1% 8%;
 
   p {
     /* color:#1967d2 */
@@ -621,7 +630,7 @@ main .card {
 
 .color2 {
   background: #E1F2E5;
-  padding: 0.3% 3%;
+  padding: 1% 8%;
 
   p {
     /* color:#34a853; */
@@ -630,7 +639,7 @@ main .card {
 
 .color3 {
   background: #FEF2D9;
-  padding: 0.3% 3%;
+  padding: 1% 8%;
 
   p {
     /* color:#f9ab00; */
@@ -640,9 +649,9 @@ main .card {
 
 .color4 {
   background: #fed5de;
-
+  padding: 1% 8%;
   p {
-    color: #fe5b7b;
+    /* color: #fe5b7b; */
   }
 
 }
@@ -683,21 +692,53 @@ main .card {
 
 .imageIcon {
   display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  justify-content: space-around;
+  /*justify-content: center;
+  *//*align-items:flex-start;
+  justify-content:start;
+  */align-items: center;
+  justify-content: center;
   width: auto;
   height: auto;
   overflow: visible;
 
-
-  & .Icon {
+   & .Icon{
     width: 20px;
     height: auto;
     margin-right: 8px;
     display: flex;
     align-items: flex-end;
   }
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.imageIcon-jobDetails {
+  display: flex;
+  /*justify-content: center;
+  */
+  align-items:flex-start;
+  justify-content:start;
+  /*align-items: center;
+  justify-content: center; */
+  width: auto;
+  height: auto;
+  overflow: visible;
+
+   & .Icon{
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    display: flex;
+    align-items: flex-end;
+  }
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .block-view {
@@ -737,7 +778,7 @@ main .card {
 
 .JobDescription-CardMiddle {
   width: 100%;
-  height:auto;
+  height:57vh;
   margin: 2% 0;
   padding: 2%;
   text-align: left;
@@ -2551,7 +2592,7 @@ justify-content:space-around; */
   color: #fff;
 
   @media(min-width: 768px) {
-    width: 58.5vw;
+    width: 66.7vw;
     /* height: 80vh; */
   }
 }
@@ -2561,6 +2602,7 @@ justify-content:space-around; */
 
   @media(min-width: 768px) {
     position: fixed;
-    width: 58.5vw;
+    width: 66.7vw;
+    /* margin-right: 2%; */
   }
 }

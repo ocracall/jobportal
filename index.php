@@ -63,7 +63,7 @@
         while ($jobDetails = $result->fetch_assoc()) {
 
         ?>
-          <div class="card">
+          <div class="card" >
 
             <div class="index-flex-view">
               <div class="index-imageLogo">
@@ -76,7 +76,8 @@
               </div>
             </div>
 
-            <div class="flex-view tags" style="gap: 0px;">
+            <div style="  display: grid;
+  grid-template-columns: auto auto auto ; gap: 15px;margin-top:30px">
               <div class="imageIcon">
                 <div class="Icon">
                   <img src="image/economy.png" alt="">
@@ -99,10 +100,8 @@
                 <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
               </div>
 
-            </div>
 
-            <div class="flex-view tags">
-              <div class="imageIcon color1">
+              <div class="imageIcon color1" >
                 <div class="Icon">
                   <img src="image/map.png" alt="">
                 </div>
@@ -115,17 +114,25 @@
                 </div>
                 <p class="tagName"> <?php include 'timecalculate.php' ?></p>
               </div>
+
+              <div class="imageIcon color3">
+                  <div class="Icon">
+                      <img src="image/data-center.png" alt="">
+                  </div>
+                  <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
+              </div>
             </div>
 
             <a class="green-btn full-width" href="./jobDetails.php?source=<?php echo $jobDetails['id']; ?>">Read More</a>
 
-
+           
           </div>
         <?php
         }
         ?>
 
       </main>
+
       <!-- ========== Start about Section ========== -->
 
       <!-- ========== End   FOOTER Section ========== -->

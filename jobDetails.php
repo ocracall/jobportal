@@ -52,31 +52,39 @@
                                 <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
                                 <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
                             </div>
-                            <div class="block-view">
+                            <div >
                                 <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
                                 <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                             </div>
                         </div>
-                        <div class="flex-view" style="gap: 5px">
-                            <div class="imageIcon color1">
+                        <div style="  display: grid;
+                grid-template-columns: auto auto  ; gap: 15px;margin-top:30px">
+                            <div class="imageIcon-jobDetails color1">
                                 <div class="Icon">
                                     <img src="image/map.png" alt="">
                                 </div>
                                 <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
                             </div>
 
-                            <div class="imageIcon color2">
+                            <div class="imageIcon-jobDetails color2">
                                 <div class="Icon">
                                     <img src="image/distributed.png" alt="">
                                 </div>
                                 <p class="tagName "> <?php echo $jobDetails['jobType']; ?></p>
                             </div>
 
-                            <div class="imageIcon color3">
+                            <div class="imageIcon-jobDetails color3">
                                 <div class="Icon">
                                     <img src="image/money.png" alt="">
                                 </div>
                                 <p class="tagName"> <?php echo $jobDetails['position']; ?></p>
+                            </div>
+
+                            <div class="imageIcon-jobDetails color4">
+                            <div class="Icon">
+                                        <img src="image/experience.png" alt="">
+                                    </div>
+                                    <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
                             </div>
 
                         </div>
@@ -92,9 +100,9 @@
         </div>
 
         <div class="detailsCardContainer">
-            <div id="sticky-anchor">
+            <span id="sticky-anchor">
 
-            </div>
+            </span>
             <div id="sticky">
 
                 <?php
@@ -115,60 +123,59 @@
                                     <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                                 </div>
                             </div>
-                            <div class="flex-view-tags">
-                                <div class="imageIcon">
+                            <div style="  display: grid;
+  grid-template-columns: auto auto auto auto; gap: 10px">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/map.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php echo $jobDetails['jobLocation']; ?></p>
                                 </div>
 
-                                <div class="imageIcon">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/data-center.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                                 </div>
 
-                                <div class="imageIcon">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/distributed.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php echo $jobDetails['jobType']; ?></p>
                                 </div>
 
-                                <div class="imageIcon">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/money.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php echo $jobDetails['jobSalary']; ?></p>
                                 </div>
 
-                            </div>
-
-                            <div class="flex-view tags">
-                                <div class="imageIcon">
+         
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/economy.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php echo $jobDetails['jobIndustry']; ?></p>
                                 </div>
 
-                                <div class="imageIcon">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/experience.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
                                 </div>
 
-                                <div class="imageIcon">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/clock.png" alt="">
                                     </div>
                                     <p class="tagName"> <?php include 'timecalculate.php' ?></p>
                                 </div>
 
-                                <div class="imageIcon">
+                                <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/id-card.png" alt="">
                                     </div>
