@@ -428,6 +428,10 @@ main .card {
   width: 95vw;
   padding: 2%;
   margin: 0 1%;
+
+  @media(min-width: 768px) {
+     width: 100%;
+    }
 }
 
 .jobListCard {
@@ -453,6 +457,7 @@ main .card {
     display: flex;
     flex-direction: column;
     padding: 2%;
+    width: 30vw;
     /* flex: 1 1 310px; */
     /* margin: 20px 10px; */
   }
@@ -537,12 +542,14 @@ main .card {
   gap: 20px;
   height: auto;
   margin-bottom: 10px;
+  align-items: flex-start;
 }
 
 .flex-view {
   display: flex;
   /* justify-content: space-evenly; */
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   height: auto;
   margin-bottom: 10px;
