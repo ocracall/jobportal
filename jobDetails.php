@@ -221,7 +221,7 @@
         function sticky_relocate() {
             const sticky = document.querySelector('#sticky');
             const window_top = window.scrollY;
-            const footer_top = document.querySelector('#footer').offsetTop - 80;
+            const footer_top = document.querySelector('#footer').offsetTop - 40;
             const div_top = document.querySelector('#sticky-anchor').offsetTop;
             const div_height = document.querySelector('#sticky').offsetHeight;
             var padding = 0; // tweak here or get from margins etc

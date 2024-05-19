@@ -430,7 +430,8 @@ main .card {
   margin: 0 1%;
 
   @media(min-width: 768px) {
-     width: 100%;
+     width: 30vw;
+     margin: 0 auto;
     }
 }
 
@@ -506,7 +507,7 @@ main .card {
 .detailsCardContent {
 
   margin: 1.5% auto;
-  height: 98vh;
+  height: auto;
   background-color: #ffffff;
   padding: 2%;
   border: 1px solid #d3d3d3;
@@ -515,6 +516,9 @@ main .card {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  @media(min-width: 768px) {
+    height: 98vh;
+  }
 }
 
 .JobDescription-CardTop {
@@ -733,7 +737,7 @@ main .card {
 
 .JobDescription-CardMiddle {
   width: 100%;
-  height: 53vh;
+  height:auto;
   margin: 2% 0;
   padding: 2%;
   text-align: left;
@@ -1750,7 +1754,7 @@ textarea:focus-visible {
 footer {
   background-color: #222222;
   padding-top: 8rem;
-  margin-top: 8rem;
+  margin-top: 4rem;
   font-family: 'Nunito', sans-serif;
   /* padding-top: 15rem; */
 }
