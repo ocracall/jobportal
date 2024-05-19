@@ -50,6 +50,20 @@
   <div class="header ">
   Connect With Us
     </div>
+        <div class="social-footer--icons">
+          <a href="#" target="_blank" alt="">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="#" target="_blank" alt="">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank" alt="">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" target="_blank" alt="">
+          <i class="fa-brands fa-square-facebook"></i>
+          </a>
+        </div>
 
 
   </div>

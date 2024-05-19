@@ -118,7 +118,7 @@ li {
 
 
   & .search3 {
-    height: 30px;
+    height: auto;
     width: 10%;
     float: right;
     background: #658e2b;
@@ -126,6 +126,8 @@ li {
     padding: 5px 10px;
     text-align: center;
     font-size: 14px;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -141,12 +143,12 @@ li {
 }
 
 .green-btn {
-  height: 30px;
+  height: auto;
   background: #658e2b;
   color: #ffffff;
-  padding: 5px 10px;
+  padding: 2px 10px;
   overflow: visible;
-  margin: 10px 0% 0px;
+  margin: 15px 0% 0px;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
@@ -155,6 +157,7 @@ li {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+
 }
 
 .full-width {
@@ -1719,8 +1722,10 @@ footer-container {
     }
   }
   & p{
+    /* color: #ef9e9e; */
+    color: #ef9e9e;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 700;
   }
 }
 
@@ -1913,6 +1918,7 @@ footer * {
   & a i {
     overflow: visible;
     padding: 0 0 0 2%;
+    color: #ffffffa1;
   }
 
   /* display: flex;
@@ -2476,10 +2482,4 @@ justify-content:space-around; */
   position: fixed;
   width: 58.5vw;
 
-  /*height: 80vh;
-     */
-  /*top: 0;
-     right:0;
-     */
-  /*z-index: 10;*/
 }
