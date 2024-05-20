@@ -1,0 +1,99 @@
+.section-navbar {
+    width: 100%;
+    /* position: fixed;
+    top: 0; */
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+    overflow: visible;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  .container {
+    margin: 30px auto;
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+  }
+
+  .section-navbar .container .navbar-brand {
+    overflow: visible;
+  
+    & a img {
+      width: 9rem;
+      height: 6rem;
+      margin: -2rem 0;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+    }
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  .accordion {
+    color: #f1f1f1;
+    background-color: transparent;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+    
+  .panel {
+    /*padding: 0 18px;
+    */
+    /*margin-right:-2rem ;
+    */
+    background-color: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  
+    /*overflow: visible;
+     */
+    & a {
+      color: #acabab;
+      display: block;
+      margin: 0 4rem 0 0;
+    }
+  
+  }
+
+  
+  @media (width <=580px) {
+    #hamburger {
+      display: inline-flex;
+      padding-bottom: 2rem;
+      color: #fff;
+    }
+  
+    .section-navbar .container {
+      flex-direction: row;
+      padding: 3rem 2rem 0rem;
+    }
+  
+    .navbar {
+      display: none;
+    }
+}

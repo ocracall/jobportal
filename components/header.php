@@ -57,10 +57,10 @@
             <a class="nav-link" href="document.location.href='./../../donation"> Company </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="document.location.href='./../../contact"> contact </a>
+            <a class="nav-link" href="document.location.href='./../contact.php"> contact </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link login" href="document.location.href='./../../donation"> Login </a>
+            <a class="nav-link login" href="document.location.href='./../login.php"> Login </a>
           </li>
         </ul>
       </nav>

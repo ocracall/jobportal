@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <script src="/js/index.js" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poetsen+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kumbh+Sans:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -45,11 +45,15 @@
         <p class="section-common-heading">Find Your <span style="font-family:'Poetsen One'; color:#635147">Dream Job</span> Here !</p>
       </div>
 
+      <form id="searchForm" action="#" method="POST">
       <div class="search">
         <img class="search1" src="./image/magnifying-glass.png" alt="" />
-        <input class="search2" placeholder="Type any Job Title Here" />
-        <div class="search3">Search</div>
+        <input class="search2"  name="searchText" id="searchText" placeholder="Type any Job Title Here" />
+        <!-- <div id="searchBtn" name="searchBtn"  class="search3">Search</div> -->
+        <input type="submit" id="searchBtn" name="searchBtn" class="search3" value="Search" />
+
       </div>
+      </form>
 
       <p class="section-subheading">Popular search</p>
 
@@ -57,13 +61,25 @@
       <main>
 
         <?php
+
+
         $getContactsData = "SELECT * FROM jobList";
         $result = $conn->query($getContactsData);
+
+        if (isset($_POST['searchBtn']) && isset($_POST['searchText']) ) {
+          // echo $_POST['jobSalary'];
+                $searchText = $_POST['searchText'];
+                $getSearchData = "SELECT * FROM jobList WHERE jobName LIKE '$searchText%'";
+                $result = $conn->query($getSearchData);
+
+                
+        }
 
         while ($jobDetails = $result->fetch_assoc()) {
 
         ?>
           <div class="card" >
+
 
             <div class="index-flex-view">
               <div class="index-imageLogo">
@@ -74,11 +90,19 @@
                 <p><?php echo $jobDetails['jobName'];  ?></p>
                 <p> <?php echo $jobDetails['company']; ?></p>
               </div>
+              <div style="width:20%">
+              
+              <button   type="submit" style="border: 0; background: transparent; cursor:pointer">
+                <img onclick="copyText(<?php echo $jobDetails['id']; ?>)" src="./image/copy.png" width="20" height="20" alt="submit" />
+
+              <div id="snackbar">Copied Link !!</div>
+              </button>
+</div>
             </div>
 
             <div style="  display: grid;
   grid-template-columns: auto auto auto ; gap: 15px;margin-top:30px">
-              <div class="imageIcon">
+              <div class="imageIcon colorPlain">
                 <div class="Icon">
                   <img src="image/economy.png" alt="">
                 </div>
@@ -86,14 +110,14 @@
               </div>
 
 
-              <div class="imageIcon">
+              <div class="imageIcon colorPlain">
                 <div class="Icon">
                   <img src="image/experience.png" alt="">
                 </div>
                 <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
               </div>
 
-              <div class="imageIcon">
+              <div class="imageIcon colorPlain">
                 <div class="Icon">
                   <img src="image/id-card.png" alt="">
                 </div>

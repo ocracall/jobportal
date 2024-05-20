@@ -37,3 +37,20 @@ $(window).scroll(function () {
   else
       $('#sidebar').removeClass('bottom');
 });
+
+
+function copyText(id) {
+  Toast();
+   // Copy the text inside the text field
+   var copyText = "http://localhost:3000/jobDetails.php?source="+id;
+  navigator.clipboard.writeText(copyText);
+  // Alert the copied text
+  // alert("Copied the text: " + copyText);
+  document.getElementById("copyTextAlert").textContent="Copied Link!!";
+}
+
+function Toast() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}

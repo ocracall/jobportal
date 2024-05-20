@@ -39,7 +39,7 @@ session_start();
 
     if($total){
         $_SESSION['session_username'] = $username;
-        header('location:events');
+        header('location:newJob.php');
     }else{
         echo "<h1>Retry</h1>";
     }

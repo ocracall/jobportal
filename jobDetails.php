@@ -56,6 +56,7 @@
                                 <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
                                 <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                             </div>
+   
                         </div>
                         <div style="  display: grid;
                 grid-template-columns: auto auto  ; gap: 15px;margin-top:30px">
@@ -122,6 +123,12 @@
                                     <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
                                     <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                                 </div>
+
+                                <button   type="submit" style="border: 0; background: transparent">
+                <img onclick="copyText(<?php echo $jobDetails['id']; ?>)" src="./image/copy.png" width="20" height="20" alt="submit" />
+
+              <div id="snackbar">Copied Link !!</div>
+              </button>
                             </div>
                             <div style="  display: grid;
   grid-template-columns: auto auto auto auto; gap: 10px">

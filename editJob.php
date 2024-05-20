@@ -4,7 +4,8 @@
 <head>
 <title>List a Job</title>
 <link rel="icon" type="image/x-icon" href="image/sai_rojgar_icon.ico">
-<link rel="stylesheet" href="css/newJob.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="login.css"> -->
+    <link rel="stylesheet" href="css/newJob.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -12,20 +13,28 @@
 
 <?php
     session_start();
+
     include("connection.php");
+
+    if (isset($_GET['source'])) {
+      $source = $_GET['source'];
+  } else {
+      $source = 2;
+  }
+
 
     $session_username = $_SESSION['session_username'];
     if ($session_username == true) {
       // echo $session_username ;
-        // $getEvents = "SELECT * FROM jobList";
-        // $result = $conn->query($getEvents);
-        // if ($result->num_rows > 0) {
-        //     $Events = $result->fetch_assoc();
-        //     echo print_r($Events) ;
-        // }
 
+      $getJobDetails = "SELECT * FROM jobList where id= $source";
+      $result = $conn->query($getJobDetails);
+      if ($result->num_rows > 0) {
+          $JobDetails = $result->fetch_assoc();
+          // echo print_r($Events) ;
+      }
         $imageUploadStatus='';
-        $formStatus='';
+    
     } else {
         header('location:login.php');
     }
@@ -35,35 +44,37 @@
 
 
 <div class="job-Form-container">
-  <div class="title">Registration</div>
-<p><?php echo $formStatus?></p>
+  <div class="title">Edit Job Info</div>
+<p><?php $formStatus?></p>
   <form id="myForm" enctype="multipart/form-data" action="#" method="POST">
   <div class="user__details">
 
       <div class="input__box">
         <span class="details">Job Heading</span>
-        <input type="text" name="jobName" id="jobName" placeholder="Assistant Manager - Human Resources">
+        <input type="text" name="jobName" id="jobName" value="<?php echo $JobDetails['jobName']; ?>" placeholder="Assistant Manager - Human Resources">
       </div>
 
       <div class="input__box">
         <span class="details">Company</span>
-        <input type="text" name="company" id="company" placeholder="Air India">
+        <input type="text" name="company" id="company" value="<?php echo $JobDetails['company']; ?>" placeholder="Air India">
       </div>
 
       <div class="input__box">
         <span class="details">position</span>
-        <input type="text" name="position" id="position" placeholder="HR">
+        <input type="text" name="position" id="position" value="<?php echo $JobDetails['position']; ?>" placeholder="HR">
       </div>
 
       <div class="input__box">
         <span class="details">location</span>
-        <input type="text" name="jobLocation" id="jobLocation" placeholder="Delhi">
+        <input type="text" name="jobLocation" id="jobLocation" value="<?php echo $JobDetails['jobLocation']; ?>" placeholder="Delhi">
       </div>
 
       <div class="input__box">
         <span class="details">Job Type</span>
+
         <!-- <input type="text" name="jobType" id="jobType" placeholder="Permanent"> -->
           <select  name="jobType" id="jobType" id="cars">
+          <option value="<?php echo $JobDetails['jobType']; ?>" selected="selected" hidden="hidden"><?php echo $JobDetails['jobType']; ?></option>
             <option value="Permanent">Permanent</option>
             <option value="Part Time">Part Time</option>
             <option value="Remote">Remote</option>
@@ -73,17 +84,17 @@
 
       <div class="input__box">
         <span class="details">Experience Required</span>
-        <input type="text" name="experienceRequired" id="experienceRequired" placeholder="2-3 Years">
+        <input type="text" name="experienceRequired" id="experienceRequired" value="<?php echo $JobDetails['experienceRequired']; ?>" placeholder="2-3 Years">
       </div>
 
       <div class="input__box">
         <span class="details">Job Description</span>
-        <input type="text" name="jobDescription" id="jobDescription" placeholder="Qualification And Responsibilities">
+        <input type="text" name="jobDescription" id="jobDescription" value="<?php echo $JobDetails['jobDescription']; ?>" placeholder="Qualification And Responsibilities">
       </div>
 
       <div class="input__box">
         <span class="details">Industry</span>
-        <input type="text" name="jobIndustry" id="jobIndustry" placeholder="IT">
+        <input type="text" name="jobIndustry" id="jobIndustry" value="<?php echo $JobDetails['jobIndustry']; ?>" placeholder="IT">
       </div>
 <!-- 
       <div class="input__box">
@@ -93,25 +104,25 @@
 
       <div class="input__box">
         <span class="details">Order No</span>
-        <input type="text" name="orderId" id="orderId" placeholder="1">
+        <input type="text" name="orderId" id="orderId" value="<?php echo $JobDetails['orderId']; ?>" placeholder="1">
       </div>
 
       <div class="input__box">
         <span class="details">Salary</span>
-        <input type="text" name="jobSalary" id="jobSalary" placeholder="50000 ₹/ Month">
+        <input type="text" name="jobSalary" id="jobSalary" value="<?php echo $JobDetails['jobSalary']; ?>" placeholder="50000 ₹/ Month">
       </div>
 
       <div class="input__box" style="width:100%">
         <span class="details">Job Description</span>
-        <textarea name="jobDescription" id="jobDescription" rows="10"  style="width:100%;">
+        <textarea name="jobDescription" id="jobDescription" rows="10"  style="width:100%;">value="<?php echo $JobDetails['jobDescription']; ?>"
         </textarea>
       </div>
 
       <div class="input__box">
-        <span class="details"> Select image to upload:</span>
+        <span class="details"> Change Image:</span>
        
 
-  <input style="margin-left: -15px; " type="file" class="transparent-border" name="fileToUpload" id="fileToUpload">
+  <input style="margin-left: -15px; " type="file" class="transparent-border" name="fileToUpload" id="fileToUpload" > 
         <p><?php 
         // echo $imageUploadStatus 
         ?></p>
@@ -127,7 +138,7 @@
 
 <?php
     if (isset($_POST['submitBtn']) && isset($_POST['jobName']) ) {
-// echo $_POST['jobSalary'];
+
       $jobName = $_POST['jobName'];
       $company = $_POST['company'];
       $position = $_POST['position'];
@@ -147,6 +158,9 @@
       $target_dir = "./uploads/";
       $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
       $Image= $target_file;
+      if(strlen($Image)<9){
+        $Image = $JobDetails['jobImage'];
+      }
       $uploadOk = 1;
       $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
       $imageUploadStatus='';
@@ -195,7 +209,10 @@
   // $jobList  = "INSERT INTO jobList(id, jobName, company, position, jobLocation, jobType, experienceRequired, jobPostedDate, jobDescription, jobIndustry, jobSkills, orderId, jobImage, jobSalary) VALUES ('NULL','$JobHeading','$Company','$position','$location','$jobType','$experienceRequired','$date','$jobDescription','$Industry','NULL','$orderNo','$Image', $jobSalary)";
 
 
-  $jobList  = "INSERT INTO joblist(id, jobName, company, position, jobLocation, jobType, experienceRequired, jobPostedDate, jobDescription, jobIndustry, jobSkills, orderId, jobImage, jobSalary,TIME_STAMP,updatedBy) VALUES ('NULL','$jobName','$company','$position','$jobLocation','$jobType','$experienceRequired','$jobPostedDate','$jobDescription','$jobIndustry','NULL','$orderId','$Image','$jobSalary', 'CURRENT_TIMESTAMP', '$session_username')";
+  // $jobList  = "INSERT INTO joblist(id, jobName, company, position, jobLocation, jobType, experienceRequired, jobPostedDate, jobDescription, jobIndustry, jobSkills, orderId, jobImage, jobSalary) VALUES ('NULL','$jobName','$company','$position','$jobLocation','$jobType','$experienceRequired','$jobPostedDate','$jobDescription','$jobIndustry','NULL','$orderId','$Image','$jobSalary')";
+
+  $jobList = "UPDATE joblist SET jobName= '$jobName', company= '$company', jobLocation= '$jobLocation', jobType= '$jobType', experienceRequired= '$experienceRequired', jobPostedDate= '$jobPostedDate', jobDescription= '$jobDescription', jobIndustry= '$jobIndustry', jobSkills= 'NULL', orderId='$orderId', jobImage= '$Image', jobSalary='$jobSalary', TIME_STAMP= CURRENT_TIMESTAMP ,updatedBy= '$session_username' where id='2'";
+
 
     if(strlen($jobName)>2){
       // echo strlen($JobHeading);

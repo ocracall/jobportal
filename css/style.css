@@ -127,6 +127,8 @@ li {
     text-align: center;
     font-size: 14px;
     font-weight: 800;
+    border: none;
+    cursor: pointer;
     font-family: 'Nunito', sans-serif;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -368,7 +370,7 @@ li {
 /* Cards Style Start */
 main {
   max-width: 1500px;
-  width: 95%;
+  width: 96%;
   margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
@@ -378,7 +380,7 @@ main {
 
 main .card {
   width: 100%;
-  flex: 1 1 360px;
+  flex: 1 1 380px;
   text-align: left;
   position: relative;
   font-family: "Mukta", sans-serif;
@@ -388,7 +390,7 @@ main .card {
   padding-bottom: 70px;
   height: auto;
   border: 1px solid #d3d3d3;
-  margin: 20px;
+  margin: 10px;
   background: #FFFFFF;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -656,6 +658,16 @@ main .card {
 
 }
 
+.colorPlain {
+  /* background: #fed5de; */
+  padding: 1% 2% 1% 0%;
+  p {
+    /* color: #fe5b7b; */
+  }
+
+}
+
+
 .index-flex-view {
   display: flex;
   justify-content: flex-start;
@@ -691,12 +703,14 @@ main .card {
 }
 
 .imageIcon {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto ;
   /*justify-content: center;
   *//*align-items:flex-start;
   justify-content:start;
   */align-items: center;
-  justify-content: center;
+  gap: 5px;
+  justify-content: left;
   width: auto;
   height: auto;
   overflow: visible;
@@ -704,9 +718,13 @@ main .card {
    & .Icon{
     width: 20px;
     height: auto;
-    margin-right: 8px;
+    /* margin-right: 8px; */
     display: flex;
     align-items: flex-end;
+    & img{
+        width: 20px;
+        height: 20px;
+    }
   }
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -757,6 +775,9 @@ main .card {
   font-weight: 500;
   font-size: 13px;
   overflow: visible;
+  /* background: #0062FF; */
+  width:fit-content;
+
 }
 
 .index-block-view {
@@ -1298,9 +1319,40 @@ figure {
 /***** actual contact page Section *****/
 
 .section-contact {
-  & .grid {
-    align-items: center;
-    gap: 6.4rem;
+  align-items: center;
+  gap: 6.4rem;
+  width:80%;
+  border: 2px solid  #F0F5F7;
+  margin: 0 auto;
+  padding: 5%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-family: "Jost", sans-serif;
+  box-sizing: border-box;
+  & label{
+    font-weight: 600;
+    font-size: 15px;
+    /* font-family: "Nunito", sans-serif; */
+    margin-bottom: 10px;
+  }
+  & input, textarea{
+    border: 1px solid transparent;
+    background: #F0F5F7;
+    font-weight: 500;
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  & input[type="text"]:focus ,input[type="email"]:focus, textarea:focus{
+    border: 1px solid #0062FF
+    /* outline: 2px dashed blue; */
   }
 }
 
@@ -1334,12 +1386,14 @@ textarea {
   font-size: 1.8rem;
   border: none;
   text-transform: capitalize;
+  width:100%;
+  font-weight: 500;
 }
 
-input:focus-visible,
+/* input:focus-visible,
 textarea:focus-visible {
   outline: 0.1rem solid var(--bnt-hover-bg-color);
-}
+} */
 
 /***** End actual contact page Section *****/
 
@@ -2606,3 +2660,52 @@ justify-content:space-around; */
     /* margin-right: 2%; */
   }
 }
+
+/* Toast Start */
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  /* border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px; */
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+/* Toast End */
