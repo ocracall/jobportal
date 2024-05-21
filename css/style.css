@@ -12,7 +12,7 @@ font-family: 'Nunito', sans-serif; */
 
 ::selection {
   color: red;
-  background: yellow;
+  background: rgb(97, 255, 179);
 }
 
 html {
@@ -102,9 +102,10 @@ li {
     width: 30px;
     height: 30px;
     padding: 5px;
-    margin: 0;
+    margin-left: 10px;
     border-radius: 0;
     background: #FFFFFF;
+    object-fit: contain;
   }
 
   & .search2 {
@@ -119,7 +120,7 @@ li {
 
   & .search3 {
     height: auto;
-    width: 10%;
+    width: 90px;
     float: right;
     background: #658e2b;
     color: #ffffff;
@@ -234,14 +235,8 @@ li {
 .bg-light {
   overflow: hidden;
 
-  /* background: #ffe7f0; */
-  &:nth-child(odd) {
     background: #FFEBD8;
-  }
 
-  &:nth-child(even) {
-    background: #89B9AD;
-  }
 
 }
 
@@ -660,7 +655,12 @@ main .card {
 
 .colorPlain {
   /* background: #fed5de; */
-  padding: 1% 2% 1% 0%;
+  padding: 1% 8%;
+
+  @media(min-width: 768px) {
+    padding: 1% 2% 1% 0%;
+  }
+
   p {
     /* color: #fe5b7b; */
   }
@@ -1319,6 +1319,7 @@ figure {
 /***** actual contact page Section *****/
 
 .section-contact {
+  background: #ffffff;
   align-items: center;
   gap: 6.4rem;
   width:80%;
@@ -2394,7 +2395,8 @@ justify-content:space-around; */
   #hamburger {
     display: inline-flex;
     padding-bottom: 2rem;
-    color: #fff;
+    color: #000000;
+    font-weight: 900;
   }
 
   .section-navbar .container {
@@ -2606,6 +2608,7 @@ justify-content:space-around; */
   color: #818181;
   display: block;
   transition: 0.3s;
+  font-weight: 600;
 }
 
 .sidenav a:hover {

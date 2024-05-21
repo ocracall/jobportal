@@ -19,8 +19,17 @@
 </head>
 
 <body>
+<div class="bg-light">
   <!-- ========== Start NAVBAR Section ========== -->
-  <?php include 'components/header.php' ?>
+  <?php  
+      session_start();
+      $session_username =$_SESSION['session_username'] ?? null; 
+      // echo $session_username;
+    if (isset($session_username)) {
+    include 'components/headerAdmin.php';
+  } else {
+    include 'components/header.php';
+  }?>
 
 
   <!-- ========== End NAVBAR Section ========== -->
@@ -96,6 +105,7 @@
 
   <?php include 'components/footer.php' ?>
   <!-- ========== End   FOOTER Section ========== -->
+  </div>
 </body>
 
 </html>

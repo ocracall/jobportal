@@ -1,0 +1,71 @@
+.login-form{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+height: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* box-shadow: 0px 0px 5px rgba(0,0,0,0.1); */
+    
+  @media(min-width: 768px) {
+    width: 30%;
+  }
+}
+
+heading {
+    font-family: 'Nunito', sans-serif; 
+    font-size: 22px;
+    text-align: center;
+  margin-bottom:30px;
+    font-weight: 600;
+}
+form{
+    font-family: 'Nunito', sans-serif; 
+    font-size: 22px;
+    text-align: left;
+    margin:0px 10px 10px 0 ;
+    font-weight: 600;
+}
+
+form label{
+    /* border: 2px solid rgb(183, 183, 183); */
+    text-transform: capitalize;
+    margin:0px 10px 10px 0 ;
+    font-weight: 600;
+    font-size: 20px;
+    @media(min-width: 768px) {
+        font-size: 16px;
+      }
+}
+
+form input{
+    border: 2px solid rgb(183, 183, 183);
+
+    text-transform: capitalize;
+    font-size: 20px;
+    margin-bottom: 20px;
+
+    @media(min-width: 768px) {
+        font-size: 16px;
+      }
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+}
+
+input[type="submit"] {
+    background-color: #0069d9;
+    color:#fff;
+    font-weight: 500;
+    margin-top: 10px;
+    @media(min-width: 768px) {
+        font-size: 16px;
+      }
+}
+
+.login-form-space{
+    height: 30px;
+}

@@ -10,10 +10,12 @@
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-        <a href="document.location.href='./../contact.php">Job</a>
-        <a href="document.location.href='./../contact.php">Company</a>
+        <a href="document.location.href='./../editJob.php">Job</a>
+        <a href="document.location.href='./../newJob.php">New Post</a>
+        <a href="document.location.href='./../editJob.php">Edit Post</a>
+        <a href="document.location.href='./../editJob.php">Company</a>
         <a href="document.location.href='./../contact.php">Contact</a>
-        <a href="document.location.href='./../login.php">Login</a>
+        <a href="document.location.href='./../logout.php">Logout</a>
       </div>
 
 
@@ -24,7 +26,13 @@
           <li class="nav-item">
             <a class="nav-link" href="document.location.href='./../../index"> Job </a>
           </li>
-
+            <li class="nav-item">
+            <a class="nav-link" href="document.location.href='./../newJob.php"> New Post </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="document.location.href='./../editJob.php"> Edit Post </a>
+          </li>
+        
           <li class="nav-item">
             <a class="nav-link" href="document.location.href='./../../donation"> Company </a>
           </li>
@@ -32,7 +40,7 @@
             <a class="nav-link" href="document.location.href='./../contact.php"> contact </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link login" href="document.location.href='./../login.php"> Login </a>
+            <a class="nav-link login" href="document.location.href='./../logout.php"> Logout </a>
           </li>
         </ul>
       </nav>

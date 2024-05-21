@@ -39,7 +39,17 @@
 
   <!-- ========== Start about Section ========== -->
   <div class="bg-light">
-    <?php include 'components/header.php' ?>
+    <?php       
+    session_start();
+
+      $session_username =$_SESSION['session_username'] ?? null; 
+      // echo $session_username;
+    if (isset($session_username)) {
+    include 'components/headerAdmin.php';
+  } else {
+    include 'components/header.php';
+  }
+  ?>
     <section class="section-about">
       <div class="container">
         <p class="section-common-heading">Find Your <span style="font-family:'Poetsen One'; color:#635147">Dream Job</span> Here !</p>
@@ -101,7 +111,7 @@
             </div>
 
             <div style="  display: grid;
-  grid-template-columns: auto auto auto ; gap: 15px;margin-top:30px">
+  grid-template-columns: auto auto auto ; gap: 15px;margin-top:30px; padding: 0 2%">
               <div class="imageIcon colorPlain">
                 <div class="Icon">
                   <img src="image/economy.png" alt="">
