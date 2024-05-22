@@ -13,7 +13,7 @@
   <!-- <link rel="stylesheet" href="css/login.css" /> -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/newJob.css" />
-  <script src="/js/index.js" async defer></script>
+  <script language="JavaScript" type="text/javascript" src="/js/index.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Kumbh+Sans:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poetsen+One&display=swap" rel="stylesheet">

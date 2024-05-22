@@ -37,7 +37,7 @@
             <a class="nav-link" href="document.location.href='./../../donation"> Company </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="document.location.href='./../contact.php"> contact </a>
+            <a class="nav-link" href="document.location.href='./../ViewContactData.php"> contact </a>
           </li>
           <li class="nav-item">
             <a class="nav-link login" href="document.location.href='./../logout.php"> Logout </a>

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="css/style.css" />
-  <script src="/js/index.js" async defer></script>
+  <script language="JavaScript" type="text/javascript" src="/js/index.js"></script>
 
   <style>
     footer {
@@ -66,7 +66,9 @@
           </div>
 
           <div>
-            <button type="submit" name="messageBtn" class="btn btn-submit">send message</button>
+
+            <input type="submit" id="messageBtn" style="background: #0062FF" name="messageBtn" class="btn btn-submit" value="send message" />
+
           </div>
         </form>
       </div>
