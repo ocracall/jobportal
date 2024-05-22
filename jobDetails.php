@@ -20,9 +20,17 @@
 <body>
 
     <?php
+    session_start();
     include("connection.php");
 
-    include 'components/header.php';
+    // echo $_SESSION['session_username'];
+    $session_username = $_SESSION['session_username'] ?? null;
+
+    if (isset($session_username)) {
+        include 'components/headerAdmin.php';
+    } else {
+        include 'components/header.php';
+    }
 
     if (isset($_GET['source'])) {
         $source = $_GET['source'];
@@ -52,11 +60,11 @@
                                 <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
                                 <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
                             </div>
-                            <div >
+                            <div>
                                 <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
                                 <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                             </div>
-   
+
                         </div>
                         <div style="  display: grid;
                 grid-template-columns: auto auto  ; gap: 15px;margin-top:30px">
@@ -82,10 +90,10 @@
                             </div>
 
                             <div class="imageIcon-jobDetails color4">
-                            <div class="Icon">
-                                        <img src="image/experience.png" alt="">
-                                    </div>
-                                    <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
+                                <div class="Icon">
+                                    <img src="image/experience.png" alt="">
+                                </div>
+                                <p class="tagName"> <?php echo $jobDetails['experienceRequired']; ?></p>
                             </div>
 
                         </div>
@@ -119,16 +127,33 @@
                                     <img src="<?php echo $jobDetails["jobImage"]; ?>" alt="">
                                     <!-- <img src="uploads/dummyLogo1.png" alt=""> -->
                                 </div>
-                                <div class="block-view">
+                                <div class="block-view" style="width: 75%">
                                     <p class="Header"><?php echo $jobDetails['jobName'];  ?></p>
                                     <p class="tagName"> <?php echo $jobDetails['company']; ?></p>
                                 </div>
 
-                                <button   type="submit" style="border: 0; background: transparent">
-                <img onclick="copyText(<?php echo $jobDetails['id']; ?>)" src="./image/copy.png" width="20" height="20" alt="submit" />
 
-              <div id="snackbar">Copied Link !!</div>
-              </button>
+                                <div style=" width: 12%">
+                                    <?php
+                                    if (isset($session_username)) {
+                                    ?> <button type="submit" style=" float: right; border: 0; background: transparent; padding:0px 10px">
+                                            <a href="./editJob.php?source=<?php echo $jobDetails['id']; ?>">
+                                                <img src="./image/edit.png" width="20" height="20" alt="submit" />
+                                            </a><br />
+                                            Edit
+                                        </button><?php
+                                                }
+                                                    ?>
+
+
+                                    <button type="submit" style=" float: right;border: 0; background: transparent;  padding:0px 10px">
+                                        <img onclick="copyText(<?php echo $jobDetails['id']; ?>)" src="./image/copy.png" width="20" height="20" alt="submit" />
+
+                                        <div id="snackbar"></div><br />
+                                        Copy
+                                    </button>
+
+                                </div>
                             </div>
                             <div style="  display: grid;
   grid-template-columns: auto auto auto auto; gap: 10px">
@@ -160,7 +185,7 @@
                                     <p class="tagName"> <?php echo $jobDetails['jobSalary']; ?></p>
                                 </div>
 
-         
+
                                 <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/economy.png" alt="">

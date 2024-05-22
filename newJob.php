@@ -24,7 +24,8 @@
   <?php
   session_start();
   include("connection.php");
-
+  
+  // echo $_SESSION['session_username'];
   $session_username =$_SESSION['session_username'] ?? null; 
   if ($session_username == true) {
 
@@ -34,17 +35,18 @@
     header('location:login.php');
   }
 
-  if ($session_username == true) {
-    include 'components/headerAdmin.php';
-  } else {
-    include 'components/header.php';
-  }
 
+  // echo $session_username;
+if (isset($session_username)) {
+include 'components/headerAdmin.php';
+} else {
+include 'components/header.php';
+}
   ?>
 
 
   <div class="newJob-Form-container">
-  <label style="margin-bottom: 30px; font-size:18px">Add Job Details</label>
+    <label style="margin-bottom: 30px; font-size:18px">Add Job Details</label>
     <p><?php echo $formStatus ?></p>
     <form id="myForm" enctype="multipart/form-data" action="#" method="POST">
       <div class="user__details">

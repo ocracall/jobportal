@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  
+<div class="bg-light">
 <?php include 'components/header.php' ?>
   <div class="login-form">
     <heading>Login</heading>
@@ -45,8 +45,10 @@
     $total = $result->num_rows;
 
     if ($total) {
+      session_start();
       $_SESSION['session_username'] = $username;
       header('location:newJob.php');
+      // echo $_SESSION['session_username'];
     } else {
       echo "<h1>Retry</h1>";
     }
@@ -54,7 +56,7 @@
   ?>
 
   <?php include 'components/footer.php' ?>
-
+  </div>
 </body>
 
 </html>

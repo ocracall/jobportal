@@ -9,13 +9,13 @@
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-        <a href="document.location.href='./../editJob.php">Job</a>
-        <a href="document.location.href='./../newJob.php">New Post</a>
-        <a href="document.location.href='./../editJob.php">Edit Post</a>
-        <a href="document.location.href='./../editJob.php">Company</a>
-        <a href="document.location.href='./../contact.php">Contact</a>
-        <a href="document.location.href='./../logout.php">Logout</a>
+        <a style="font-weight:800; color:#fd9999;margin-bottom:10px" href="#">Hello <?php echo $_SESSION['session_username']?></a>
+        <a  style="margin-left:20px" href="document.location.href='./../index.php">Job</a>
+        <a style="margin-left:20px" href="document.location.href='./../newJob.php">New Post</a>
+        <a style="margin-left:20px" href="document.location.href='./../editJob.php">Edit Post</a>
+        <a style="margin-left:20px" href="document.location.href='./../index.php">Company</a>
+        <a style="margin-left:20px" href="document.location.href='./../contact.php">Contact</a>
+        <a style="margin-left:20px" href="document.location.href='./../logout.php">Logout</a>
       </div>
 
 

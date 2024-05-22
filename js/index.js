@@ -40,17 +40,18 @@ $(window).scroll(function () {
 
 
 function copyText(id) {
-  Toast();
+  Toast("Copied Link!!");
    // Copy the text inside the text field
    var copyText = "http://localhost:3000/jobDetails.php?source="+id;
   navigator.clipboard.writeText(copyText);
   // Alert the copied text
   // alert("Copied the text: " + copyText);
-  document.getElementById("copyTextAlert").textContent="Copied Link!!";
+  // document.getElementById("copyTextAlert").textContent="Copied Link!!";
 }
 
-function Toast() {
+function Toast(toastMessage) {
   var x = document.getElementById("snackbar");
+  x.textContent="Copied Link!!";
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
