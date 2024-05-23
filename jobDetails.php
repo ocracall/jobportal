@@ -105,7 +105,7 @@
             <?php
             }
             ?>
-            <div style="margin-right:2vw;"></div>
+            <div style="margin:1.8vw;"></div>
         </div>
 
         <div class="detailsCardContainer">
@@ -155,8 +155,7 @@
 
                                 </div>
                             </div>
-                            <div style="  display: grid;
-  grid-template-columns: auto auto auto auto; gap: 10px">
+                            <div style="  display: grid; grid-template-columns: auto auto auto auto; gap: 10px">
                                 <div class="imageIcon-jobDetails">
                                     <div class="Icon">
                                         <img src="image/map.png" alt="">

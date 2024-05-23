@@ -2,7 +2,7 @@
 <header id="header" class="section-navbar">
     <div class="container">
       <div class="navbar-brand">
-        <a  href="index">
+        <a  href="document.location.href='./../index.php">
           <img src="./image/sai_rojgar_logo_5.png" alt="" />
         </a>
       </div>
@@ -10,8 +10,8 @@
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-        <a href="document.location.href='./../contact.php">Job</a>
-        <a href="document.location.href='./../contact.php">Company</a>
+        <a href="document.location.href='./../index.php">Job</a>
+        <a href="document.location.href='./../index.php">Company</a>
         <a href="document.location.href='./../contact.php">Contact</a>
         <a href="document.location.href='./../login.php">Login</a>
       </div>
@@ -22,11 +22,11 @@
 
         <ul>
           <li class="nav-item">
-            <a class="nav-link" href="document.location.href='./../../index"> Job </a>
+            <a class="nav-link" href="document.location.href='./../index.php"> Job </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="document.location.href='./../../donation"> Company </a>
+            <a class="nav-link" href="document.location.href='./../index.php"> Company </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="document.location.href='./../ViewContactData.php"> contact </a>

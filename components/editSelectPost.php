@@ -5,18 +5,11 @@
 <?php
 
 
-$getContactsData = "SELECT * FROM jobList";
-$result = $conn->query($getContactsData);
-
-if (isset($_POST['searchBtn']) && isset($_POST['searchText'])) {
-  // echo $_POST['jobSalary'];
-  $searchText = $_POST['searchText'];
-  $getSearchData = "SELECT * FROM jobList WHERE jobName LIKE '$searchText%'";
-  $result = $conn->query($getSearchData);
-}
-
-while ($jobDetails = $result->fetch_assoc()) {
-
+    include("connection.php");
+        $sql = "SELECT * FROM joblist ORDER BY orderId";
+        $result = $conn->query($sql);
+		
+	 while ($jobDetails = $result->fetch_assoc()) { 
 ?>
 
   <div class="card">

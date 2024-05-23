@@ -2,7 +2,7 @@
 <header id="header" class="section-navbar">
     <div class="container">
       <div class="navbar-brand">
-        <a  href="index">
+        <a  href="document.location.href='./../index.php">
           <img src="./image/sai_rojgar_logo_5.png" alt="" />
         </a>
       </div>
@@ -24,7 +24,7 @@
 
         <ul>
           <li class="nav-item">
-            <a class="nav-link" href="document.location.href='./../../index"> Job </a>
+            <a class="nav-link" href="document.location.href='./../index.php"> Job </a>
           </li>
             <li class="nav-item">
             <a class="nav-link" href="document.location.href='./../newJob.php"> New Post </a>
@@ -34,7 +34,7 @@
           </li>
         
           <li class="nav-item">
-            <a class="nav-link" href="document.location.href='./../../donation"> Company </a>
+            <a class="nav-link" href="document.location.href='./../index.php"> Company </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="document.location.href='./../ViewContactData.php"> contact </a>

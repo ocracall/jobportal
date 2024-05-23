@@ -20,17 +20,13 @@
 </head>
 
 <body>
-  <div class="bg-light">
+ <div class="bg-light">
     <?php
     session_start();
 
     include("connection.php");
 
-    if (isset($_GET['source'])) {
-      $source = $_GET['source'];
-    } else {
-      $source = null;
-    }
+
 
 
     $session_username = $_SESSION['session_username'] ?? null;
@@ -48,29 +44,25 @@
     } else {
       header('location:login.php');
     }
-
     ?>
 
-
-  
 <?php 
+    if (isset($_GET['source'])) {
+      $source = $_GET['source'];
 
-if($source==null){
-  include 'components/editSelectPost.php';
-      } else{
-      $getJobDetails = "SELECT * FROM jobList where id= $source";
-      $result = $conn->query($getJobDetails);
-      if ($result->num_rows > 0) {
-        $JobDetails = $result->fetch_assoc();
-        // echo print_r($Events) ;
-      }
-      $imageUploadStatus = ''; ?>
-    <div class="newJob-Form-container">
-      <label style="margin-bottom: 30px; font-size:18px">Edit Job Details</label>
-      <p><?php $formStatus ?></p>
-      <form id="myForm" enctype="multipart/form-data" action="#" method="POST">
-        <div class="user__details">
+        $sql = "SELECT * FROM joblist where id= $source";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $JobDetails = $result->fetch_assoc();
+        }
 
+?>
+
+<div class="newJob-Form-container">
+    <label style="margin-bottom: 30px; font-size:18px">Edit Job Details</label>
+     <form id="myForm" enctype="multipart/form-data" action="#" method="POST">
+
+  <div class="user__details">
           <div class="input__box">
             <label>Job Heading</label>
             <input type="text" name="jobName" id="jobName" value="<?php echo $JobDetails['jobName']; ?>" placeholder="Assistant Manager - Human Resources">
@@ -118,11 +110,7 @@ if($source==null){
             <label>Industry</label>
             <input type="text" name="jobIndustry" id="jobIndustry" value="<?php echo $JobDetails['jobIndustry']; ?>" placeholder="IT">
           </div>
-          <!-- 
-      <div class="input__box">
-        <label>Skills</label>
-        <input type="text" name="jobSkills" id="jobSkills" placeholder="IT">
-      </div> -->
+
 
           <div class="input__box">
             <label>Order No</label>
@@ -137,7 +125,7 @@ if($source==null){
           <div class="input__box" style="width:100%">
             <label>Job Description</label>
             <textarea name="jobDescription" id="jobDescription" rows="10" style="width:100%;">value="<?php echo $JobDetails['jobDescription']; ?>"
-        </textarea>
+          </textarea>
           </div>
 
           <div class="input__box">
@@ -155,11 +143,12 @@ if($source==null){
           <input type="submit" id="submitBtn" name="submitBtn" class="publish-btn" value="Publish" />
         </div>
 
-      </form>
-    </div>
 
-    <?php
-      }
+     </form>
+</div>
+
+ <?php
+
     if (isset($_POST['submitBtn']) && isset($_POST['jobName'])) {
 
       $jobName = $_POST['jobName'];
@@ -178,7 +167,7 @@ if($source==null){
 
 
 
-      $target_dir = "./uploads/";
+      $target_dir = "uploads/";
       $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
       $Image = $target_file;
       if (strlen($Image) < 9) {
@@ -228,15 +217,8 @@ if($source==null){
         // if everything is ok, try to upload file
       }
 
-      // $notice  = "INSERT INTO contactform (id, username, email, subject, message)
-      // VALUES ('NULL','$username', '$email','$subject','$message')";
 
-      // $jobList  = "INSERT INTO jobList(id, jobName, company, position, jobLocation, jobType, experienceRequired, jobPostedDate, jobDescription, jobIndustry, jobSkills, orderId, jobImage, jobSalary) VALUES ('NULL','$JobHeading','$Company','$position','$location','$jobType','$experienceRequired','$date','$jobDescription','$Industry','NULL','$orderNo','$Image', $jobSalary)";
-
-
-      // $jobList  = "INSERT INTO joblist(id, jobName, company, position, jobLocation, jobType, experienceRequired, jobPostedDate, jobDescription, jobIndustry, jobSkills, orderId, jobImage, jobSalary) VALUES ('NULL','$jobName','$company','$position','$jobLocation','$jobType','$experienceRequired','$jobPostedDate','$jobDescription','$jobIndustry','NULL','$orderId','$Image','$jobSalary')";
-
-      $jobList = "UPDATE joblist SET jobName= '$jobName', company= '$company', jobLocation= '$jobLocation', jobType= '$jobType', experienceRequired= '$experienceRequired', jobPostedDate= '$jobPostedDate', jobDescription= '$jobDescription', jobIndustry= '$jobIndustry', jobSkills= 'NULL', orderId='$orderId', jobImage= '$Image', jobSalary='$jobSalary', TIME_STAMP= CURRENT_TIMESTAMP ,updatedBy= '$session_username' where id='2'";
+      $jobList = "UPDATE joblist SET jobName= '$jobName', company= '$company', jobLocation= '$jobLocation', jobType= '$jobType', experienceRequired= '$experienceRequired', jobPostedDate= '$jobPostedDate', jobDescription= '$jobDescription', jobIndustry= '$jobIndustry', jobSkills= 'NULL', orderId='$orderId', jobImage= '$Image', jobSalary='$jobSalary', TIME_STAMP= CURRENT_TIMESTAMP ,updatedBy= '$session_username' where id='$source'";
 
 
       if (strlen($jobName) > 2) {
@@ -259,6 +241,14 @@ if($source==null){
       }
     }
     ?>
+
+<?php
+    } else {
+        include 'components/editSelectPost.php';
+    }
+?>
+
+
     <?php include 'components/footer.php' ?>
   </div>
 </body>

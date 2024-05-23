@@ -19,38 +19,23 @@
 </head>
 
 <body>
+    <div class="bg-light">
     <?php
+    session_start();
     include("connection.php");
-    // $getEvents = "SELECT * FROM jobList";
-    // $result = $conn->query($getEvents);
 
+    // echo $_SESSION['session_username'];
+    $session_username = $_SESSION['session_username'] ?? null;
 
-    $sql = "SELECT * FROM jobList ORDER BY orderId";
-    $all_product = $conn->query($sql);
-
-    while ($Events = $all_product->fetch_assoc()) {
-        // echo print_r($Events) ;
-        // echo ($Events['position']) ;
-        // echo "<h1> Heading</h1><br>" ;
+    if (isset($session_username)) {
+        include 'components/headerAdmin.php';
+    } else {
+        include 'components/header.php';
     }
-
     ?>
 
-    <div class="bg-light">
-        <?php
-        session_start();
-
-        $session_username = $_SESSION['session_username'] ?? null;
-        // echo $session_username;
-        if (isset($session_username)) {
-            include 'components/headerAdmin.php';
-        } else {
-            include 'components/header.php';
-        }
-        ?>
-
-        <div class='table-container'>
-            <table id="productTable">
+<div class='table-container'>
+<table id="productTable">
                 <div style="margin: 1% auto; text-align:center; font-size: 1.2em">
                     <h1>Contacts Data</h1>
                 </div>
@@ -64,7 +49,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                 <tbody>
                     <?php
                     $sr = 0;
 
@@ -93,28 +78,28 @@
                         // echo "<h1> Heading</h1><br>" ;
                         $sr++;
                         echo "<tr>
-<td>" . $sr . "</td>
-<td>" . $ContactData['username'] . "</td>
-<td>" . $ContactData['email'] . "</td>
-<td>" . $ContactData['subject'] . "</td>
-<td>" . $ContactData['message'] . "</td>
+                                <td>" . $sr . "</td>
+                                <td>" . $ContactData['username'] . "</td>
+                                <td>" . $ContactData['email'] . "</td>
+                                <td>" . $ContactData['subject'] . "</td>
+                                <td>" . $ContactData['message'] . "</td>
 
-<td><form method='post' action='#'>
+                                <td><form method='post' action='#'>
 
-<button class='contactDeleteBtn' name='delete' value=" . $ContactData['id'] . ">delete</button>
-</form>
-</td>
-</tr>";
+                                <button class='contactDeleteBtn' name='delete' value=" . $ContactData['id'] . ">delete</button>
+                                </form>
+                                </td>
+                                </tr>";
                     }
 
 
 
                     ?>
                 </tbody>
-            </table>
-        </div>
-
-        <?php include 'components/footer.php' ?>
+</table>
+</div>
+  <?php include 'components/footer.php' ?>
+  </div>
 </body>
 
 </html>
